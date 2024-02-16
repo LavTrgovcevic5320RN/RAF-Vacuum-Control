@@ -1,0 +1,193 @@
+<div *ngIf="vacuums.length > 0" class="user-list-container">
+  <div class="vacuum-operations">
+    <div class="vacuum-filter">
+      <h1>Vacuum filter</h1>
+      <form (ngSubmit)="onSubmit($event)">
+        <div class="filter-group">
+          <div class="filter-name">Name</div>
+          <div class="filter-input">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              [(ngModel)]="name"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-name">Status</div>
+          <div class="filter-input">
+            <input
+              type="text"
+              id="status"
+              name="status"
+              [(ngModel)]="status"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-name">Date from</div>
+          <div class="filter-input">
+            <input
+              type="date"
+              id="dateFrom"
+              name="dateFrom"
+              [(ngModel)]="dateFrom"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-name">Date to</div>
+          <div class="filter-input">
+            <input
+              type="date"
+              id="dateTo"
+              name="dateTo"
+              [(ngModel)]="dateTo"
+              required
+            />
+          </div>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div style="display: flex; flex-direction: column; margin-left: 50px">
+      <!-- START VACUUM -->
+      <div class="vacuum-operation">
+        <h1>Start vacuum</h1>
+        <form>
+          <div class="filter-group">
+            <div class="filter-name">Vacuum ID</div>
+            <div class="filter-input">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                [(ngModel)]="startVacuumIdx"
+                required
+              />
+            </div>
+          </div>
+          <button (click)="startVacuum()">Submit</button>
+        </form>
+      </div>
+
+      <!-- STOP VACUUM -->
+      <div class="vacuum-operation">
+        <h1>Stop vacuum</h1>
+        <form>
+          <div class="filter-group">
+            <div class="filter-name">Vacuum ID</div>
+            <div class="filter-input">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                [(ngModel)]="stopVacuumIdx"
+                required
+              />
+            </div>
+          </div>
+          <button (click)="stopVacuum()">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; margin-left: 50px">
+      <!-- DISCHARGE VACUUM -->
+      <div style="margin-left: 50px" class="vacuum-operation">
+        <h1>Discharge vacuum</h1>
+        <form>
+          <div class="filter-group">
+            <div class="filter-name">Vacuum ID</div>
+            <div class="filter-input">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                [(ngModel)]="discVacuumIdx"
+                required
+              />
+            </div>
+          </div>
+          <button (click)="discVacuum()">Submit</button>
+        </form>
+      </div>
+
+      <div style="margin-left: 50px" class="vacuum-operation">
+        <h1>Schedule operation</h1>
+        <form>
+          <div class="filter-group">
+            <div class="filter-name">Vacuum ID</div>
+            <div class="filter-input">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                [(ngModel)]="schedOpIdx"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Schedule -->
+          <div class="filter-group">
+            <label for="operations">Operations:</label>
+            <select
+              id="operations"
+              name="opeartion"
+              [(ngModel)]="operation"
+              required
+            >
+              <option value="START">START</option>
+              <option value="STOP">STOP</option>
+              <option value="DISCHARGE">DISCHARGE</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="operations">Operations:</label>
+            <div class="filter-input">
+              <input
+                type="datetime-local"
+                id="schedTime"
+                name="schedTime"
+                [(ngModel)]="schedTime"
+                required
+              />
+            </div>
+          </div>
+          <button (click)="scheduleOperation()">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <h2>Vacuum List</h2>
+  <table class="user-table" *ngIf="hasSearchPerm">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Created At</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let vacuum of vacuums">
+      <td>{{ vacuum.id }}</td>
+      <td>{{ vacuum.name }}</td>
+      <td>{{ vacuum.status }}</td>
+      <td>{{ vacuum.createdAt }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="no-users-message" *ngIf="vacuums.length === 0">
+  <p>No vacuums available.</p>
+</div>

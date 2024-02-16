@@ -1,0 +1,10 @@
+<nav>
+  <ul>
+    <li><a href="/login" routerLink="/login">Login</a></li>
+    <li><a href="/all" routerLink="/all">Users</a></li>
+    <li *ngIf="hide('can_create_users')"><a href="/add" routerLink="/Add">Add</a></li>
+    <li><a href="/vacuums">Vacuums</a></li>
+    <li><a href="/vacuums-add">Add Vacuums</a></li>
+    <li><a href="/errors">Errors</a></li>
+  </ul>
+</nav>

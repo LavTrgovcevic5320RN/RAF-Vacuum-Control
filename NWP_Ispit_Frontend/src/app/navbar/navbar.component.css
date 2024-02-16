@@ -1,0 +1,26 @@
+nav {
+  background-color: #333;
+  padding: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li:hover{
+  cursor: pointer;
+}
+
+li {
+  float: left;
+  margin-right: 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}

@@ -1,0 +1,31 @@
+<div *ngIf="user" class="edit-user-container">
+  <h2>Edit User</h2>
+  <form class="edit-user-form" (ngSubmit)="onSubmit()">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" [(ngModel)]="user.firstName" required>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" [(ngModel)]="user.lastName" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+
+    <div class="form-group">
+      <label for="permissions">Permissions:</label>
+      <select id="permissions" name="permissions" [(ngModel)]="user.permissions" multiple required>
+        <option value="can_read_users">Can Read Users</option>
+        <option value="can_create_users">Can Create Users</option>
+        <option value="can_update_users">Can Update Users</option>
+        <option value="can_delete_users">Can Delete Users</option>
+        <option value="can_search_vacuums">Can Search Vacuums</option>
+        <option value="can_add_vacuums">Can Add Vacuums</option>
+        <option value="can_remove_vacuums">Can Remove Vacuums</option>
+        <option value="can_discharge_vacuums">Can Discharge Vacuums</option>
+        <option value="can_stop_vacuums">Can Stop Vacuums</option>
+        <option value="can_start_vacuums">Can Start Vacuums</option>
+      </select>
+    </div>
+
+    <button type="submit">Save</button>
+  </form>
+</div>

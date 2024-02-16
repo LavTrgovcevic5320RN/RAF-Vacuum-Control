@@ -1,0 +1,27 @@
+<div *ngIf="errors.length > 0" class="user-list-container">
+  <h2>User List</h2>
+  <table class="user-table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Vacuum</th>
+      <th>Operation</th>
+      <th>Message</th>
+      <th>Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let err of errors">
+      <td>{{ err.id }}</td>
+      <td>{{ err.vacuum.name }}</td>
+      <td>{{ err.operation }}</td>
+      <td>{{ err.errorMessage }}</td>
+      <td>{{ err.scheduledTime }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="no-users-message" *ngIf="errors.length === 0">
+  <p>No errors available.</p>
+</div>
+

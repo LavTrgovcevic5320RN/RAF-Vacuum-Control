@@ -1,0 +1,60 @@
+.user-list-container {
+  margin: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+
+.user-table th {
+  background-color: #f2f2f2;
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+.user-table td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+.user-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.no-users-message {
+  margin-top: 20px;
+  font-style: italic;
+  color: #555;
+}
+
+button.delete-button {
+  background-color: #d9534f;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.delete-button:hover {
+  background-color: #c9302c;
+}
+
+.hasPermission {
+  color: blue;
+  cursor: pointer;
+}
+
+.noPermission {
+  color: red !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
